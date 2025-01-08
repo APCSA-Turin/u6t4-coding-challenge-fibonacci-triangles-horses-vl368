@@ -29,11 +29,13 @@ public class TriangleCollection {
     // PRECONDITION: numTriangles >= 2
     public TriangleCollection(int numTriangles, int startX, int startY) {
       /* IMPLEMENT ME */
-      Triangle[] collection = new Triangle[numTriangles];
+      collection = new Triangle[numTriangles];
       Point pt1 = new Point(-startX, 0);
       Point pt2 = new Point(0, startY);
       Point pt3 = new Point(startX, 0);
       for (int i = 0; i < numTriangles; i++) {
+        pt1 = new Point(-startX, 0);
+        pt2 = new Point(0, startY);
         pt3 = new Point(startX - i, 0);
         Triangle triangle = new Triangle(pt1, pt2, pt3);
         collection[i] = triangle;
@@ -44,7 +46,7 @@ public class TriangleCollection {
     // all Triangles in the collection
     public double totalPerimeter() {
       /* IMPLEMENT ME */
-      int sum = 0;
+      double sum = 0;
       for (Triangle triangle : collection) {
         sum += triangle.perimeter();
       }
@@ -56,10 +58,17 @@ public class TriangleCollection {
     // ADD GETTER AND SETTER METHODS TO OTHER CLASSES AS NECESSARY
     public void shiftTriangles(int increment) {
       /* IMPLEMENT ME */
+      int i = 0;
       for (Triangle triangle : collection) {
-        for (Point vertice : triangle.getVertices()) {
+        Point[] vertices = triangle.getVertices();
+        for (Point vertice : vertices) {
+          System.out.print(vertice.getX());
+          System.out.println(vertice.getY());
           vertice.setX(vertice.getX() + increment);
           vertice.setY(vertice.getY() + increment);
+          System.out.print(vertice.getX());
+          System.out.println(vertice.getY());
+          System.out.println("----");
         }
       }
     }
@@ -78,7 +87,6 @@ public class TriangleCollection {
       for (Triangle triangle : collection) {
         returnStr += triangle.triangleInfo() + "\n";
       }
-      returnStr = returnStr.substring(returnStr.length() - 2);
       return returnStr;
     }
   }

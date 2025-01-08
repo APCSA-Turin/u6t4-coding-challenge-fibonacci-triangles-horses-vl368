@@ -13,12 +13,17 @@ public class HorseBarn {
      */
     public HorseBarn(int numStalls) {
         /* to be implemented in part (a) */
+        stalls = new Horse[numStalls];
     }
 
     /** Assigns stalls to reference sampleHorses
      */
     public HorseBarn(Horse[] sampleStalls) {
         /* to be implemented in part (a) */
+        stalls = new Horse[sampleStalls.length];
+        for (int i = 0; i < sampleStalls.length; i++) {
+            stalls[i] = sampleStalls[i];
+        }
     }
 
     /** Getter/accessor method for stalls
@@ -26,6 +31,9 @@ public class HorseBarn {
      *  @return  a references to the stalls array
      */
     // to be added in part (a)
+    public Horse[] getStalls() {
+        return stalls;
+    }
 
     /** Returns a string that shows which horses are in which stalls
      */

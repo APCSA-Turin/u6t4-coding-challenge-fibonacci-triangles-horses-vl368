@@ -36,7 +36,36 @@ public class TriangleTests {
         System.out.println("Triangle Info test");
         System.out.println("Test 1: " + (t1.triangleInfo().equals("[(0, 1), (2, 8), (0, 2)]")));
         System.out.println("Test 2: " + (t2.triangleInfo().equals("[(4, 5), (7, 0), (2, 8)]")));
+        Point p1 = new Point(5, 10);
+        Point p2 = new Point(-6, 17);
+        Point p3 = new Point(18, 4);
+        Point p4 = new Point(-1, 4);
+        Point p5 = new Point(4, 0);
+        Point p6 = new Point(-1, 0);
+
+        Triangle tri1 = new Triangle(p1,p2,p3);
+        Triangle tri2 = new Triangle(p4,p5,p6);
+        System.out.println("Test 1: " + (tri1.triangleInfo().equals("[(5, 10), (-6, 17), (18, 4)]")));
         System.out.println("--------------------");
+
+
+
+        TriangleCollection collection1 = new TriangleCollection(6,4,7);
+        System.out.println(collection1.triangleCollectionInfo());
+        String expected = 
+        "[(1, 5), (5, 12), (9, 5)]\n"+
+        "[(1, 5), (5, 12), (8, 5)]\n"+
+        "[(1, 5), (5, 12), (7, 5)]\n"+
+        "[(1, 5), (5, 12), (6, 5)]\n"+
+        "[(1, 5), (5, 12), (5, 5)]\n"+
+        "[(1, 5), (5, 12), (4, 5)]\n";
+        collection1.shiftTriangles(5);
+
+        System.out.println(collection1.triangleCollectionInfo());
+        System.out.println(collection1.triangleCollectionInfo().equals(expected));
+
+
+
         System.out.println("--------------------");
         System.out.println("--------------------");
         System.out.println("--------------------");

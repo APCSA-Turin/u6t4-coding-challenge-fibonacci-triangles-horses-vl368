@@ -21,7 +21,7 @@ public class Triangle {
       double perimeter = 0;
       perimeter += vertices[0].distanceTo(vertices[1]);
       perimeter += vertices[1].distanceTo(vertices[2]);
-      perimeter += vertices[2].distanceTo(vertices[3]);
+      perimeter += vertices[2].distanceTo(vertices[0]);
       return perimeter;
     }
   
@@ -34,7 +34,7 @@ public class Triangle {
       for (Point vertice : vertices) {
         str += vertice.pointInfo() + ", ";
       }
-      str = str.substring(str.length()-2) + "]";
+      str = str.substring(0,str.length()-2) + "]";
       return str;
     }
 

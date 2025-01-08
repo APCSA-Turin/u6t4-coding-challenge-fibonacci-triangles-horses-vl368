@@ -6,6 +6,8 @@ public class Horse  {
 
     public Horse(String name, int weight) {
         //implement here
+        this.name = name;
+        this.weight = weight;
     }
 
     /** @return the horse's name */
