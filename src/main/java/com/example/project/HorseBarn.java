@@ -39,7 +39,19 @@ public class HorseBarn {
      */
     public String horseBarnInfo() {
         /* to be implemented in part (b) */
-        return "";
+        String returnStr = "";
+        for (int i = 0; i < stalls.length; i++) {
+            Horse stall = stalls[i];
+            returnStr += "Stall " + i + ": ";
+            if (stall == null) {
+                returnStr += "empty";
+            }
+            else {
+                returnStr += stall.horseInfo();
+            }
+            returnStr += "\n";
+        }
+        return returnStr;
     }
 
     /** Places a Horse into stalls at the index indicated by stall
@@ -51,6 +63,7 @@ public class HorseBarn {
      */
     public void placeHorse(Horse horse, int stall) {
         /* to be implemented in part (c) */
+        stalls[stall] = horse;
     }
 
     /** Returns the index of the stall that contains the horse with the specified name.
@@ -63,7 +76,14 @@ public class HorseBarn {
      */
     public int findHorseStall(String name) {
         /* to be implemented in part (d) */
-        return 0;
+        for (int i = 0; i < stalls.length; i++) {
+            if (stalls[i] != null) {                
+                if (stalls[i].getName().equals(name)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 
     /** Consolidates the barn by moving horses so that the horses are in adjacent
@@ -73,5 +93,14 @@ public class HorseBarn {
      */
     public void consolidate() {
         /* to be implemented in part (e) */
+        Horse[] consolidated = new Horse[stalls.length];
+        int index = 0;
+        for (Horse horse : stalls) {
+            if (horse != null) {
+                consolidated[index] = horse;
+                index++;
+            }
+        }
+        stalls = consolidated;
     }
 }
